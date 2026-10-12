@@ -13,16 +13,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 README says the workflow is spec-driven (`/spec`, `/spec-impl` skills from `Klerith/fernando-skills`).
 
-## Commands
+## Skills
 
-```bash
-npm run dev     # next dev
-npm run build   # next build
-npm run start   # next start
-npm run lint    # eslint (flat config, next core-web-vitals + typescript)
-```
-
-No test runner is configured.
+Usa siempre /front-design para diseñar la interfaz de usuario
 
 ## Next.js version caveat
 
