@@ -1,4 +1,7 @@
-﻿@import "tailwindcss";
+﻿/* Tailwind sin preflight: su reset (h1 a peso 400, padding 0 en inputs) cambia el aspecto respecto al prototipo. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 @theme inline {
   --color-bg: var(--bg);
@@ -27,8 +30,10 @@
   --bronze: #d97a3a;
   --line: rgba(0, 245, 255, 0.18);
   --line-2: rgba(255, 255, 255, 0.06);
-  --pixel: var(--font-press-start), system-ui, monospace;
-  --mono: var(--font-jetbrains), var(--font-courier), "Courier New", monospace;
+  /* Nombres directos (como el prototipo): las vars de next/font añaden un fallback Arial con métricas
+     ajustadas que dibuja los símbolos (▲, ▾, ★) más grandes que el prototipo. */
+  --pixel: "Press Start 2P", system-ui, monospace;
+  --mono: "JetBrains Mono", "Courier Prime", "Courier New", monospace;
 }
 
 * { box-sizing: border-box; }
