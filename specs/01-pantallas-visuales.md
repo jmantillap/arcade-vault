@@ -1,6 +1,6 @@
 # SPEC 01 — Pantallas visuales de ARCADE VAULT
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** Ninguna (parte del scaffold con `globals.css` y `layout.tsx` ya estilizados)
 > **Date:** 2026-10-12
 > **Objective:** Portar las 5 pantallas de `references/templates/` (biblioteca, detalle, reproductor, acceso, Salón de la Fama) más la navegación a rutas de Next.js App Router, solo la parte visual y sin implementar ningún juego.
