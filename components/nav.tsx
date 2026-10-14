@@ -10,12 +10,18 @@ export default function Nav() {
   const pathname = usePathname();
   const { user, signOut } = useSession();
 
-  const isActive = (name: "biblioteca" | "salon" | "acceso") => {
+  const isActive = (name: "inicio" | "biblioteca" | "salon" | "acceso") => {
+    if (name === "inicio") return pathname === "/";
     if (name === "salon") return pathname.startsWith("/salon");
     if (name === "acceso") return pathname.startsWith("/acceso");
-    return pathname === "/" || pathname.startsWith("/juego") || pathname.startsWith("/jugar");
+    return (
+      pathname.startsWith("/biblioteca") ||
+      pathname.startsWith("/juego") ||
+      pathname.startsWith("/jugar")
+    );
   };
-  const cls = (name: "biblioteca" | "salon" | "acceso") => (isActive(name) ? "active" : "");
+  const cls = (name: "inicio" | "biblioteca" | "salon" | "acceso") =>
+    isActive(name) ? "active" : "";
   const close = () => setOpen(false);
 
   return (
@@ -28,7 +34,8 @@ export default function Nav() {
           </div>
         </Link>
         <div className="links">
-          <Link href="/" className={cls("biblioteca")}>Biblioteca</Link>
+          <Link href="/" className={cls("inicio")}>Inicio</Link>
+          <Link href="/biblioteca" className={cls("biblioteca")}>Biblioteca</Link>
           <Link href="/salon" className={cls("salon")}>Salón de la Fama</Link>
         </div>
         <div className="spacer"></div>
@@ -47,7 +54,8 @@ export default function Nav() {
       <div className={"av-mobile-backdrop" + (open ? " open" : "")} onClick={close}></div>
       <aside className={"av-mobile-panel" + (open ? " open" : "")} aria-hidden={!open}>
         <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>MENÚ</div>
-        <Link href="/" className={cls("biblioteca")} onClick={close}>Biblioteca</Link>
+        <Link href="/" className={cls("inicio")} onClick={close}>Inicio</Link>
+        <Link href="/biblioteca" className={cls("biblioteca")} onClick={close}>Biblioteca</Link>
         <Link href="/salon" className={cls("salon")} onClick={close}>Salón de la Fama</Link>
         <Link href="/acceso" className={cls("acceso")} onClick={close}>{user ? "Cuenta" : "Iniciar Sesión"}</Link>
         <div style={{ flex: 1 }}></div>
