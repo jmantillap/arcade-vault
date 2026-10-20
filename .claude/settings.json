@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell",
+            "args": [
+              "-NoProfile",
+              "-ExecutionPolicy",
+              "Bypass",
+              "-File",
+              ".claude/hooks/format-on-write.ps1"
+            ],
+            "timeout": 60,
+            "statusMessage": "Prettier + ESLint..."
+          }
+        ]
+      }
+    ]
+  }
+}
